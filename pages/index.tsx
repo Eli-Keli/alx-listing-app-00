@@ -1,5 +1,8 @@
+import Pill from '@/components/common/Pill';
 import HEROIMAGE from '@/constants/hero.jpg'
 import Image from 'next/image';
+
+const filters = ['Top Villa', 'Self Che ckin', 'Pet Friendly', 'Free WiFi', 'Pool'];
 
 export default function Home() {
   return (
@@ -12,8 +15,9 @@ export default function Home() {
           <p className="text-lg sm:text-xl lg:text-2xl mt-4 drop-shadow-md">The best prices for over 2 million properties worldwide.</p>
         </div>
       </section>
-      <h1 className="text-4xl">Welcome to ALX Listing App</h1>
-      <p className="text-lg">This is a simple listing app built with Next.js and Tailwind CSS</p>
+      <section className="flex flex-wrap gap-2 mt-4">
+        <Pill filters={filters} onClick={(filter) => console.log(filter)} />
+      </section>
     </main>
   );
 }

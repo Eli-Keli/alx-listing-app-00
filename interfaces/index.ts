@@ -17,3 +17,8 @@ export interface PropertyProps {
     image: string;
     discount: string;
 }
+
+export interface PillProps {
+    filters: string[];
+    onClick: (filter: string) => void;
+}
