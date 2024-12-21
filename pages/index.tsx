@@ -1,6 +1,7 @@
 import Pill from '@/components/common/Pill';
 import HEROIMAGE from '@/constants/hero.jpg'
 import Image from 'next/image';
+import { PROPERTYLISTINGSAMPLE } from '@/constants';
 
 const filters = ['Top Villa', 'Self Che ckin', 'Pet Friendly', 'Free WiFi', 'Pool'];
 
@@ -17,6 +18,18 @@ export default function Home() {
       </section>
       <section className="flex flex-wrap gap-2 mt-4">
         <Pill filters={filters} onClick={(filter) => console.log(filter)} />
+      </section>
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
+        {PROPERTYLISTINGSAMPLE.map((property) => (
+          <div key={property.name} className="border rounded-lg overflow-hidden shadow-lg">
+            <Image src={property.image} alt={property.name} width={500} height={192} className="w-full h-48 object-cover" />
+            <div className="p-4">
+              <h2 className="text-lg font-semibold">{property.name}</h2>
+              <p className="text-sm text-gray-500">${property.price} per night</p>
+              <p className="text-sm text-gray-500">Rating: {property.rating}</p>
+            </div>
+          </div>
+        ))}
       </section>
     </main>
   );
